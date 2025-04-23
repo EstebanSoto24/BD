@@ -4,7 +4,7 @@ DROP PROCEDURE IF EXISTS salario $$
 CREATE PROCEDURE salario (id int, nombre varchar(255), edad int, salario int, s_min int)
 BEGIN
 
-	IF salario > s-min
+	IF salario > s_min
 		THEN
 			INSERT INTO Empleados VALUES (id, nombre, edad, salario);
 		ELSE
