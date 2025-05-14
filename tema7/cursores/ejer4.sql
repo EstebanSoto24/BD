@@ -1,0 +1,34 @@
+DELIMITER $$
+USE Practica8 $$
+DROP PROCEDURE IF EXISTS procedimiento1 $$
+CREATE PROCEDURE procedimiento1 ()
+BEGIN
+
+/* DECLARACIÓN DE VARIABLES NORMALES */
+
+
+/* DECLARACIÓN DEL CURSOR */
+DECLARE cursor1 CURSOR FOR
+SELECT
+
+/* DECLARACIÓN DEL CONTROL DE ERRORES */
+DECLARE CONTINUE HANDLER FOR NOT FOUND SET lrf = 1;
+
+/* REALIZACIÓN DEL EJERCICIO EN SI */
+SET lrf = 0, cont = 0;
+
+OPEN cursor1;
+
+bucle: LOOP
+	FETCH cursor1 INTO nombre, p1, p2
+	IF lrf = 1
+		THEN LEAVE bucle;
+	END IF;
+END LOOP bucle;
+
+CLOSE cursor1;
+
+END; $$
+DELIMITER $$
+
+
